@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="origin">
+
+<!-- Website title and description -->
+<title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }} ">
+
+<!-- RSS -->
+<!-- {{- with .OutputFormats.Get "RSS" -}}
+{{ $rss := .RelPermalink }}
+{{- if $.Site.Params.rss -}}
+{{ $rss = $.Site.Params.rss }}
+{{- end -}}
+<link href="{{ $rss }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title | markdownify}}" />
+{{- end -}} -->

@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="section">
+    <div class="content">
+        {{ partial "title.html" . }}
+        {{ .Content }}
+        {{ $nRoles := len .Params.roles }}
+        {{ range $index, $role := .Params.roles }}
+            <h2 class="member-role mb-2 mt-4 text-center">{{ $role }}</h2>
+            <div class="album px-3 px-md-5">
+                <div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 justify-content-center g-2 g-md-3">
+                    {{ range $.Pages }}
+                    {{ if eq .Params.role $role }}
+                    {{ partial "member-card" . }}
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+            <!-- Divider between sections -->
+            {{ if lt $index (sub $nRoles 1) }}
+                <hr class="divider mt-3">
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}

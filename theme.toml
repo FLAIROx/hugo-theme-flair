@@ -1,0 +1,12 @@
+name = "Flair"
+license = "MIT"
+licenselink = "https://github.com/FLAIROx/hugo-theme-flair/blob/master/LICENSE"
+description = "Theme for FLAIR"
+homepage = "http://example.com/"
+tags = []
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "FLAIR"
+  homepage = ""

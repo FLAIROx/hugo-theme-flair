@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    {{ block "head" . }}
+    {{ partial "head.html" . }}
+    {{ end }}
+
+    {{ block "head_resources" . }}
+    <!-- Use this block to link to further resources like .js or .css files. -->
+    {{ end }}
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    {{ partial "header.html" . }}
+    <main>
+        {{ block "splash" . }}{{ end }}
+        <div class="container-md">
+        {{ block "main" . }}{{ end }}
+        </div>
+    </main>
+    {{ partial "footer.html" . }}
+    {{ partial "script.html" . }}
+    <!-- Include custom JavaScript after jQuery and Bootstrap plugins -->
+    {{ block "page-scripts" . }}{{ end }}
+</body>
+</html>

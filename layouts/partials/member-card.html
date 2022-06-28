@@ -1,0 +1,27 @@
+<div class="col">
+    <div class="card border-0 text-center m-3">
+        <img src="{{ .Params.image }}" class="card-img-top rounded-2" width="100%" height="100%" alt="{{ .Params.name }}"
+            focusable="false" loading="lazy"/>
+        <div class="card-body p-2">
+            <h3 class="member-name mb-0">{{ .Params.name }}</h3>
+            <!-- <p class="card-text">{{ .Content }}</p> -->
+            {{ with .Params.yearJoined }}
+                <p class="member-year ms-auto mb-0">{{ . }}</p>
+            {{ end }}
+            <div class="d-flex align-items-center justify-content-center ps-0">
+                {{ with .Params.website }}
+                    <a href="{{ . }}"><i class="fa-solid fa-house-chimney member-icon p-2"></i></a>
+                {{ end }}
+                {{ with .Params.twitterHandle }}
+                    <a href="https://twitter.com/{{ . }}"><i class="fa-brands fa-twitter member-icon p-2"></i></a>
+                {{ end }}
+                {{ with .Params.googleScholar }}
+                    <a href="{{ . }}"><i class="fa-solid fa-graduation-cap member-icon p-2"></i></a>
+                {{ end }}
+                {{ with .Params.githubHandle }}
+                    <a href="https://github.com/{{ . }}"><i class="fa-brands fa-github member-icon p-2"></i></a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>

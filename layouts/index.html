@@ -1,0 +1,40 @@
+{{ define "splash" }}
+<div id="myCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+    <!-- <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+    </div> -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            {{ with .Site.Params.splashPhoto }}
+            <img src="{{ . }}" width="100%" height="auto" alt="{{ . }}" focusable="false"
+                loading="lazy" class="splash-img" />
+            {{ end }}
+
+            <div class="container">
+                <div class="carousel-caption d-inline-flex">
+                    <span class="title">{{ .Site.Params.LongTitle }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button> -->
+</div>
+{{ end }}
+
+
+{{ define "main" }}
+<div class="section">
+    <div class="content">
+        <!-- Hack to format page content -->
+        {{ .Content | replaceRE "<p>" "<p class=\"lead-para\">" | safeHTML }}
+    </div>
+</div>
+{{ end }}
