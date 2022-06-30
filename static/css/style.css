@@ -54,6 +54,11 @@ h3 {
     font-weight: 300;
 }
 
+/* Used for email */
+code {
+    font-size: 16pt;
+}
+
 a {
     color: var(--link);
 }
