@@ -122,6 +122,14 @@ Icons and images
     background-color: var(--navbar);
 }
 
+.navbar-home .nav-item .nav-link {
+    color: #ffffff;
+}
+
+.navbar-home {
+    /* color: #ffffff; */
+    background-color: transparent !important;
+}
 
 /* .active-pill,
 a.nav-link:hover {

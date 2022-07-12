@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+{{ define "navbar-inner" }}
     <div class="container-md">
         <a href="/" class="navbar-brand">
             {{ with .Site.Params.siteLogo }}
-                <img src="{{ relURL . }}" width=auto alt="{{ $.Site.Title }}" style="max-width: 250px; max-height: 100px" />
-                <!-- <img src="{{ relURL . }}" object-fit=cover width=100% height=100% class="" alt="{{ $.Site.Title }}" /> -->
-                <!-- <img src="{{ relURL . }}" class="bi me-2" width="70" height="50" alt="{{ $.Site.Title }}" /> -->
+            <img src="{{ relURL . }}" width=auto alt="{{ $.Site.Title }}" style="max-width: 250px; max-height: 100px" />
+            <!-- <img src="{{ relURL . }}" object-fit=cover width=100% height=100% class="" alt="{{ $.Site.Title }}" /> -->
+            <!-- <img src="{{ relURL . }}" class="bi me-2" width="70" height="50" alt="{{ $.Site.Title }}" /> -->
             {{ else }}
-                <span class="fs-4">{{ .Site.Title }}</span>
+            <span class="fs-4">{{ .Site.Title }}</span>
             {{ end }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsableMenu">
@@ -17,24 +17,33 @@
             <ul class="navbar-nav nav-pills ms-auto">
                 <!-- Manually add homepage to navbar -->
                 {{if .IsHome }}
-                    <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link active ps-2" href="/" title="Home">Home</a></li>
+                <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link active ps-2" href="/" title="Home">Home</a></li>
                 {{ else }}
-                    <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link ps-2" href="/" title="Home">Home</a></li>
+                <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link ps-2" href="/" title="Home">Home</a></li>
                 {{ end }}
 
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
-                    {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
-                        <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link active ps-2" href="{{ .URL }}" title="{{ .Title }}">{{
-                            .Name}}</a></li>
-                    {{ else }}
-                        <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link ps-2" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
-                    {{ end }}
+                {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+                <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link active ps-2" href="{{ .URL }}"
+                        title="{{ .Title }}">{{
+                        .Name}}</a></li>
+                {{ else }}
+                <li class="nav-item mb-2 mb-lg-0 mx-1"><a class="nav-link ps-2" href="{{ .URL }}" title="{{ .Title }}">{{
+                        .Name }}</a></li>
+                {{ end }}
                 {{ end }}
             </ul>
         </div>
     </div>
-</nav>
+{{ end }}
+
+{{ if .IsHome }}
+    <nav class="navbar navbar-expand-md navbar-light bg-light d-md-none">{{ block "navbar-inner" . }}{{ end }}</nav>
+    <nav class="navbar navbar-expand-md navbar-light bg-light navbar-home fixed-top d-none d-md-block">{{ block "navbar-inner" . }}{{ end }}</nav>
+{{ else }}
+    <nav class="navbar navbar-expand-md navbar-light bg-light">{{ block "navbar-inner" . }}{{ end }}</nav>
+{{ end }}
 
 <!-- <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
