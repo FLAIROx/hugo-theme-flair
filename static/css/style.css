@@ -91,6 +91,7 @@ color: gray;
 }
 
 .member-name {
+    font-size: 1.5rem;
 }
 
 .member-year {
@@ -143,7 +144,7 @@ a.nav-link:hover {
 
 /* Members */
 .member-icon {
-    font-size: 1.5rem
+    font-size: 1.25rem
 }
 
 
