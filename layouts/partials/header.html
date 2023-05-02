@@ -38,7 +38,8 @@
     </div>
 {{ end }}
 
-{{ if .IsHome }}
+{{ if and .IsHome .Site.Params.splashBackground }}
+    <!-- Place splash photo behind navigation bar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light d-md-none">{{ block "navbar-inner" . }}{{ end }}</nav>
     <nav class="navbar navbar-expand-md navbar-light bg-light navbar-home fixed-top d-none d-md-block">{{ block "navbar-inner" . }}{{ end }}</nav>
 {{ else }}

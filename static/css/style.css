@@ -83,7 +83,7 @@ color: gray;
     font-size: 5vw;
     font-weight: 100;
     /* color:gray; */
-    background-color: rgba(0,0,0,0.06);
+    /* background-color: rgba(0,0,0,0.06); */
 }
 
 /* Members */
@@ -167,6 +167,8 @@ a.nav-link:hover {
 }
 
 .splash-img {
-    opacity: 0.95;
-    filter: brightness(75%);
+    /* opacity: 0.95; */
+    /* filter: brightness(75%); */
+    display: block;
+    width: 100%;
 }

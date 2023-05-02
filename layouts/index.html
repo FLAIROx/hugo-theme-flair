@@ -1,13 +1,15 @@
 {{ define "splash" }}
-<div id="myCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+{{ if .Site.Params.splashBackground }}
+<div id="myCarousel" class="carousel slide mb-3"
+    data-bs-ride="carousel">
     <!-- <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
     </div> -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            {{ with .Site.Params.splashPhoto }}
-            <img src="{{ . }}" width="100%" height="auto" alt="{{ . }}" focusable="false"
-                loading="lazy" class="splash-img" />
+            {{ with .Site.Params }}
+            <img src="{{ .splashPhoto }}" height="auto" alt="{{ .splashPhoto }}" focusable="false" loading="lazy"
+                class="splash-img" />
             {{ end }}
 
             <div class="container">
@@ -27,6 +29,31 @@
         <span class="visually-hidden">Next</span>
     </button> -->
 </div>
+{{ else }}
+<div id="myCarousel" class="carousel slide mb-3 container-md"
+    data-bs-ride="carousel">
+    <!-- <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+    </div> -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            {{ with .Site.Params }}
+            <img src="{{ .splashPhoto }}" height="auto" alt="{{ .splashPhoto }}" focusable="false" loading="lazy"
+                class="mx-auto img-fluid d-block mt-md-3" />
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button> -->
+</div>
+{{ end }}
 {{ end }}
 
 
