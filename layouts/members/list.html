@@ -7,7 +7,7 @@
         {{ range $index, $role := .Params.roles }}
             <h2 class="member-role mb-2 mt-4 text-center">{{ $role }}</h2>
             <div class="album px-3 px-md-5">
-                <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-4 justify-content-center">
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center">
                     {{ if in $.Params.printDate $role }}
                         <!-- Nested sort lab members by year joined and name -->
                         {{ range ($.Pages.GroupByParam "yearJoined").Reverse }}

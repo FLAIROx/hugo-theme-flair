@@ -91,11 +91,15 @@ color: gray;
 }
 
 .member-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    /* font-size: large; */
+    font-weight: 300;
 }
 
-.member-year {
+.member-info {
     color: gray;
+    font-size: 0.75rem;
+    font-weight: 300;
 }
 
 /* Research */
@@ -144,7 +148,7 @@ a.nav-link:hover {
 
 /* Members */
 .member-icon {
-    font-size: 1.25rem
+    font-size: 1rem
 }
 
 
