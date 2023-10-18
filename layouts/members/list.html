@@ -11,16 +11,18 @@
             {{ else }}
                 <div class="album px-3 px-md-5">
                     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 justify-content-center">
-                        <!-- Sort members by year joined, left, or neither -->
-                        {{ $dateKey := "" }}
                         {{ if in $.Params.sortJoinDate $role }}
-                            {{ $dateKey := "yearJoined" }}
+                            <!-- Nested sort lab members by year joined and name -->
+                            {{ range ($.Pages.GroupByParam "yearJoined").Reverse }}
+                            {{ range sort .Pages ".Params.name" }}
+                            {{ if eq .Params.role $role }}
+                            {{ partial "member-card" . }}
+                            {{ end }}
+                            {{ end }}
+                            {{ end }}
                         {{ else if in $.Params.sortLeftDate $role }}
-                            {{ $dateKey := "yearLeft" }}
-                        {{ end }}
-                        {{ if $dateKey }}
-                            <!-- Nested sort lab members by year and name -->
-                            {{ range ($.Pages.GroupByParam $dateKey).Reverse }}
+                            <!-- Nested sort lab members by year left and name -->
+                            {{ range ($.Pages.GroupByParam "yearLeft").Reverse }}
                             {{ range sort .Pages ".Params.name" }}
                             {{ if eq .Params.role $role }}
                             {{ partial "member-card" . }}
