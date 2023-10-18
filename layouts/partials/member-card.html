@@ -6,8 +6,11 @@
             <p class="member-name mb-0">{{ .Params.name }}</p>
             <!-- <p class="card-text">{{ .Content }}</p> -->
             <!-- Print info if present, else print date if present -->
-            {{ if .Params.info }}
-                <p class="member-info ms-auto mb-0">{{ .Params.info }}</p>
+            {{ with .Params.info }}
+                <p class="member-info ms-auto mb-0">{{ . }}</p>
+            {{ end }}
+            {{ if .Params.yearLeft }}
+                <p class="member-info ms-auto mb-0">{{ .Params.yearJoined}}-{{ .Params.yearLeft }}</p>
             {{ else if .Params.yearJoined }}
                 <p class="member-info ms-auto mb-0">{{ .Params.yearJoined }}</p>
             {{ end }}
