@@ -5,11 +5,11 @@
         <div class="card-body px-2 pt-2 pb-0">
             <p class="member-name mb-0">{{ .Params.name }}</p>
             <!-- <p class="card-text">{{ .Content }}</p> -->
-            {{ with .Params.info }}
-                <p class="member-info ms-auto mb-0">{{ . }}</p>
-            {{ end }}
-            {{ with .Params.yearJoined }}
-                <p class="member-info ms-auto mb-0">{{ . }}</p>
+            <!-- Print info if present, else print date if present -->
+            {{ if .Params.info }}
+                <p class="member-info ms-auto mb-0">{{ .Params.info }}</p>
+            {{ else if .Params.yearJoined }}
+                <p class="member-info ms-auto mb-0">{{ .Params.yearJoined }}</p>
             {{ end }}
             <div class="d-flex align-items-center justify-content-center ps-0">
                 {{ with .Params.website }}
