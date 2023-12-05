@@ -4,11 +4,11 @@
         {{ partial "title.html" . }}
         {{ .Content }}
         <input type="radio" class="btn-check" name="topicRadio" id="All" autocomplete="off" checked>
-        <label class="btn btn-outline-secondary me-2 mb-1" for="All">Show all</label>
+        <label class="btn radio-option btn-outline-secondary me-2 mb-1" for="All">Show all</label>
         <div class="btn-group mb-1 d-inline-flex flex-wrap" id="topicForm">
         {{ range .Params.topics }}
                 <input type="radio" class="btn-check" name="topicRadio" id="{{ . }}" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="{{ . }}">{{ . }}</label>
+                <label class="btn radio-option btn-outline-secondary" for="{{ . }}">{{ . }}</label>
             {{ end }}
         </div>
         <div class="album mt-3" id="topicCards">

@@ -1,12 +1,12 @@
 <div class="card border-0 m-4 slide-fade-in" data-topics="{{ .Params.topics }}">
     <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
-        <div class="col col-12 col-md-4 col-xl-3">
+        <div class="col col-6 col-md-4 col-xl-2">
             {{ if .Params.image }}
             <a href="{{ .Params.link }}"><img src="{{ .Params.image }}" class="paper-img" width="100%" height="100%"
                     alt="{{ .Params.title }}" focusable="false" loading="lazy" /></a>
             {{ end }}
         </div>
-        <div class="col col-12 col-md-8 col-xl-9 d-flex align-items-center">
+        <div class="col col-6 col-md-8 col-xl-9 d-flex align-items-center">
             <div class="paper-body">
                 <a href="{{ .Params.link }}">
                     <h3 class="paper-title hover-underline-animation">{{ .Params.title }}</h3>

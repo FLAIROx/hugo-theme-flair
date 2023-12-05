@@ -80,7 +80,8 @@ color: gray;
 }
 
 .title {
-    font-size: 5vw;
+    /* font-size: 5vw; */
+    font-size: 3rem;
     font-weight: 100;
     /* color:gray; */
     /* background-color: rgba(0,0,0,0.06); */
@@ -88,6 +89,8 @@ color: gray;
 
 /* Members */
 .member-role {
+    font-size: 2rem;
+    font-weight: 100;
 }
 
 .member-name {
@@ -103,12 +106,25 @@ color: gray;
 }
 
 /* Research */
-.paper-authors {
+.paper-authors,
+.paper-venue {
     font-style: italic;
+    color: gray;
+    font-size: 0.75rem;
+    font-weight: 300;
 }
 
-.paper-title,
-.paper-venue {}
+.paper-title {
+    font-size: 1.2rem;
+    /* font-size: large; */
+    font-weight: 300;
+}
+
+.radio-option{
+    color: gray;
+    font-size: 0.75rem;
+    font-weight: 300;
+}
 
 
 /*
