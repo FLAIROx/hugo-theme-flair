@@ -15,3 +15,11 @@
 {{- end -}}
 <link href="{{ $rss }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title | markdownify}}" />
 {{- end -}} -->
+
+<!-- Redirects -->
+{{ if .Params.redirectTo }}
+    <meta http-equiv="refresh" content="0; url={{ .Params.redirectTo }}">
+    <script type="text/javascript">
+        window.location.href = "{{ .Params.redirectTo }}"
+    </script>
+{{ end }}
